@@ -1,8 +1,10 @@
-<Project Sdk="WixToolset.Sdk/4.0.2">
+<Project Sdk="WixToolset.Sdk/4.0.5" ToolsVersion="4.0">
   <PropertyGroup>
     <ProductVersion>3.0</ProductVersion>
     <OutputName>XecretsFileClassic</OutputName>
-    <SpecialBuildSuffix></SpecialBuildSuffix>
+    <SpecialBuildSuffix>
+    </SpecialBuildSuffix>
+    <Platforms>x86;x64;ARM64</Platforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <ConfigPlatformPathPart>$(Configuration)</ConfigPlatformPathPart>
@@ -11,6 +13,10 @@
   <PropertyGroup Condition=" '$(Platform)' == 'x64' ">
     <ConfigPlatformPathPart>$(Platform)\$(Configuration)</ConfigPlatformPathPart>
     <OutputPlatformName>x64</OutputPlatformName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'ARM64' ">
+    <ConfigPlatformPathPart>$(Platform)\$(Configuration)</ConfigPlatformPathPart>
+    <OutputPlatformName>ARM64</OutputPlatformName>
   </PropertyGroup>
   <PropertyGroup>
     <OutputPath>bin\$(ConfigPlatformPathPart)\</OutputPath>
@@ -30,9 +36,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <DefineConstants>Package.TargetDir=$(SolutionDir)x64\$(Configuration);Package.TargetDirWin32=$(SolutionDir)$(Configuration);Version.IncludeDir=$(SolutionDir)x64\$(Configuration)</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM64' ">
+    <DefineConstants>Debug;Package.TargetDir=$(SolutionDir)arm64\$(Configuration);Package.TargetDirWin32=$(SolutionDir)$(Configuration);Version.IncludeDir=$(SolutionDir)arm64\$(Configuration)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM64' ">
+    <DefineConstants>Package.TargetDir=$(SolutionDir)arm64\$(Configuration);Package.TargetDirWin32=$(SolutionDir)$(Configuration);Version.IncludeDir=$(SolutionDir)arm64\$(Configuration)</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.2" />
-    <PackageReference Include="WixToolset.UI.wixext" Version="4.0.2" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.5" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="4.0.5" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Build\Version.txt">

@@ -156,6 +156,7 @@
     <None Include="XecretsFileClassic.manifest.x64">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="XecretsFileClassic.manifest.ARM64" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Build\XecretsFileClassic.ico">

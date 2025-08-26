@@ -102,5 +102,6 @@
     <None Include="XecretsFile2Go.manifest.Win32">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="XecretsFile2Go.manifest.ARM64" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,11 @@
-﻿<?if $(var.Platform) = "x86" ?>
+﻿<?if $(sys.BUILDARCH) = "x86" ?>
 <?define UpgradeCode="{144C9A78-FA04-4b0c-B6F4-6F063E8C685D}" ?>
 <?endif?>
-<?if $(var.Platform) = "x64" ?>
+<?if $(sys.BUILDARCH) = "x64" ?>
 <?define UpgradeCode="{0EDC72B5-C3D7-4511-9183-C3A3EDDB8646}" ?>
+<?endif?>
+<?if $(sys.BUILDARCH) = "arm64" ?>
+<?define UpgradeCode="{A6A1E5B9-9F8E-4C9B-9C24-2A6C4E2F4C9E}" ?>
 <?endif?>
 <!-- Releases are always released as major upgrades, i.e. a version number change + Product Code change. -->
 <?include $(var.Version.IncludeDir)\Version.wxi ?>
@@ -54,7 +57,7 @@
             Message="!(loc.WinNTNotSupported)" />
 
     <!-- If this installer is a 32-bit version, we require the OS to be not 64 bit. -->
-    <?if $(var.Platform) = "x86" ?>
+    <?if $(sys.BUILDARCH) = "x86" ?>
     <Launch Condition="VersionNT64 = &quot;&quot;"
             Message="!(loc.DoNotInstall32BitOn64Bit)" />
     <?endif?>
@@ -422,11 +425,13 @@
            Cabinet="XecretsFileClassic.cab"
            EmbedCab="yes" />
 
-    <?if $(var.Platform) = "x64" ?>
+  <?if $(sys.BUILDARCH) = "x64" ?>
     <?define PlatformProgramFilesFolder = "ProgramFiles64Folder"?>
-    <?else?>
+  <?elseif $(sys.BUILDARCH) = "arm64" ?>
+    <?define PlatformProgramFilesFolder = "ProgramFiles64Folder"?>
+  <?else?>
     <?define PlatformProgramFilesFolder = "ProgramFilesFolder"?>
-    <?endif?>
+  <?endif?>
 
     <Property Id="ARPCOMMENTS"
               Value="!(loc.ArpComments)" />

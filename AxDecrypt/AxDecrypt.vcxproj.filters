@@ -54,5 +54,6 @@
     <None Include="AxDecrypt.manifest.Win32">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="AxDecrypt.manifest.ARM64" />
   </ItemGroup>
 </Project>
