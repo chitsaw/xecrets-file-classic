@@ -590,7 +590,7 @@
                  DiskId="1">
         <File Id="AxDecrypt.exe"
               Name="AxDecrypt.exe"
-              Source="$(var.Package.TargetDirWin32)\AxDecrypt.exe"
+              Source="$(var.Package.TargetDir)\AxDecrypt.exe"
               KeyPath="yes"
               Checksum="yes" />
       </Component>
@@ -598,7 +598,7 @@
                  DiskId="1">
         <File Id="XecretsFile2Go.exe"
               Name="XecretsFile2Go.exe"
-              Source="$(var.Package.TargetDirWin32)\XecretsFile2Go.exe"
+              Source="$(var.Package.TargetDir)\XecretsFile2Go.exe"
               KeyPath="yes"
               Checksum="yes" />
       </Component>

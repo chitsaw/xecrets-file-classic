@@ -1,10 +1,8 @@
-<Project Sdk="WixToolset.Sdk/4.0.5" ToolsVersion="4.0">
+<Project Sdk="WixToolset.Sdk/4.0.2">
   <PropertyGroup>
     <ProductVersion>3.0</ProductVersion>
     <OutputName>XecretsFileClassic</OutputName>
-    <SpecialBuildSuffix>
-    </SpecialBuildSuffix>
-    <Platforms>x86;x64;ARM64</Platforms>
+    <SpecialBuildSuffix></SpecialBuildSuffix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <ConfigPlatformPathPart>$(Configuration)</ConfigPlatformPathPart>
@@ -43,8 +41,8 @@
     <DefineConstants>Package.TargetDir=$(SolutionDir)arm64\$(Configuration);Package.TargetDirWin32=$(SolutionDir)$(Configuration);Version.IncludeDir=$(SolutionDir)arm64\$(Configuration)</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.5" />
-    <PackageReference Include="WixToolset.UI.wixext" Version="4.0.5" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.2" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="4.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Build\Version.txt">

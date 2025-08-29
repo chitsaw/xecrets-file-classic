@@ -15,7 +15,7 @@
     <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
     <OutputPlatformName Condition=" '$(OutputPlatformName)' == '' ">$(Platform)</OutputPlatformName>
     <OutputName Condition=" '$(OutputName)' == '' ">XecretsFileClassic</OutputName>
-  <AxPlatformConfigurationDir Condition=" '$(Platform)' == 'ARM64' ">arm64\$(Configuration)\</AxPlatformConfigurationDir>
+    <AxPlatformConfigurationDir Condition=" '$(Platform)' == 'ARM64' ">arm64\$(Configuration)\</AxPlatformConfigurationDir>
     <AxPlatformConfigurationDir Condition=" '$(Platform)' == 'x64' ">x64\$(Configuration)\</AxPlatformConfigurationDir>
     <AxPlatformConfigurationDir Condition=" '$(Platform)' == 'Win32' ">$(Configuration)\</AxPlatformConfigurationDir>
     <AxPlatformConfigurationDir Condition=" '$(Platform)' == 'x86' ">$(Configuration)\</AxPlatformConfigurationDir>
@@ -265,10 +265,12 @@
   <Target Name="AxWixProjBeforeBeforeBuild"
           BeforeTargets="AxWixProjBeforeBuild"
           DependsOnTargets="AxSetVersion">
+	<!--
     <Error Text="Missing Win32 AxDecrypt.exe - build this first [$(_AxSolutionWin32TargetDir)AxDecrypt.exe]."
            Condition=" !Exists('$(_AxSolutionWin32TargetDir)AxDecrypt.exe') " />
     <Error Text="Missing Win32 XecretsFile2Go.exe - build this first [$(_AxSolutionWin32TargetDir)XecretsFile2Go.exe]."
            Condition=" !Exists('$(_AxSolutionWin32TargetDir)XecretsFile2Go.exe') " />
+	-->
   </Target>
 
   <!-- These may be overridden, only here as place holders -->
