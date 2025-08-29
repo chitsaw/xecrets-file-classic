@@ -116,7 +116,7 @@
           Condition=" '$(AxIsGplBuild)' == 'true' ">
     <PropertyGroup>
       <Major>1</Major>
-      <Minor>0</Minor>
+      <Minor>7</Minor>
       <Revision>0</Revision>
       <AxBuildVersion>0</AxBuildVersion>
       <SpecialBuild>GPL</SpecialBuild>
