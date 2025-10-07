@@ -1181,6 +1181,7 @@ PrimaryInit(int nCmdShow) {
 	utTmpDir.SetNotCompressed();
 	utTmpDir.Close();
 
+#ifndef _DONOTVERIFYSIGS
 	// We do this before initializing the global heap, but we destroy the
 	// objects before removing the global heap too. This is because std::streams
 	// cause allocations that are not destructed until at C-runtime exit. If
@@ -1189,6 +1190,7 @@ PrimaryInit(int nCmdShow) {
 	// when the are alive, but we cannot destruct heaps on the secure heap after
 	// it has gone... This all needs cleaning up.
 	(void)ValidateSigsEtc();                // Returns false on validation error, msConfigErr != ""
+#endif
 
 #ifndef _DEBUGHEAP
 	// Then make the secure heap
